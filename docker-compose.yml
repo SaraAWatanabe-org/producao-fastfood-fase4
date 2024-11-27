@@ -1,0 +1,46 @@
+services:
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: fastfood
+    ports:
+      - "27017:27017"
+    networks:
+      - local-network
+
+  adminer:
+    image: adminer
+    container_name: order-service-status-adminer
+    restart: always
+    ports:
+      - "8083:8083"
+    networks:
+      - local-network
+    environment:
+      ADMINER_PLUGINS: "mongo"
+    depends_on:
+      - mongodb
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+        - MONGODB_URL=mongodb://root:rootpassword@mongodb:27017/fastfood
+        - PRODUCTION_SERVICE_URL=http://adminer:8081/
+    ports:
+      - "8082:8082"
+    container_name: order-service-status-app
+    networks:
+      - local-network
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+networks:
+  local-network:
+    driver: bridge
