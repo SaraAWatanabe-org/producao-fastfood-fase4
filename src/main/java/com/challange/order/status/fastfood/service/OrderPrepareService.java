@@ -40,17 +40,30 @@ public class OrderPrepareService {
         LunchStatus lunchStatus = LunchStatus.fromDescricao(newStatus);
         lunch.setStatus(lunchStatus);
 
-        lunchRepository.save(lunch);
+        try {
+            Lunch save = lunchRepository.save(lunch);
 
-        httpRequestOrderLunch(lunchId, newStatus);
+            if(save != null) {
+                httpRequestOrderLunch(lunchId, newStatus);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         return lunch;
     }
 
     public Lunch prepareLunch(Lunch lunch) {
-        Lunch save = lunchRepository.save(lunch);
+        Lunch save = null;
+        try {
+            save = lunchRepository.save(lunch);
 
-        httpRequestOrderLunch(save.getId(), save.getStatus().getDescricao());
+            if(save != null){
+                httpRequestOrderLunch(save.getId(), save.getStatus().getDescricao());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         return save;
 
@@ -78,7 +91,7 @@ public class OrderPrepareService {
                         response.statusCode(), response.body()));
             }
         } catch (Exception e) {
-            throw new StatusException(String.format("Erro ao enviar requisição para a URL: %s", url));
+            throw new RuntimeException(String.format("Erro ao enviar requisição para a URL: %s", url),e);
         }
     }
 
