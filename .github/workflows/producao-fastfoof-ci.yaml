@@ -37,7 +37,7 @@ jobs:
       run: mvn test jacoco:report
 
     - name: Upload coverage report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: coverage-report
         path: target/site/jacoco/jacoco.xml
@@ -48,7 +48,7 @@ jobs:
 
     steps:
     - name: Check out repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up JDK 21
       uses: actions/setup-java@v4
@@ -57,7 +57,7 @@ jobs:
         java-version: '21'
 
     - name: Download coverage report
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: coverage-report
     
