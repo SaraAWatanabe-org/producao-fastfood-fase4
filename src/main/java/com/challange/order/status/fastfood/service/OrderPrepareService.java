@@ -56,6 +56,7 @@ public class OrderPrepareService {
     public Lunch prepareLunch(Lunch lunch) {
         Lunch save = null;
         try {
+            lunch.setStatus(LunchStatus.RECEBIDO);
             save = lunchRepository.save(lunch);
 
             if(save != null){
