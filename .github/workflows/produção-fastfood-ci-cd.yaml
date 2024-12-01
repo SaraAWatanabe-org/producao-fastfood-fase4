@@ -1,7 +1,7 @@
 name: CI-CD - Release
 on: 
   pull_request:
-    types: [closed]
+    types: [opened]
     branches:
       - main
 
@@ -22,7 +22,7 @@ jobs:
       run: mvn clean install -DskipTests
    test:
     runs-on: ubuntu-latest
-    needs: build
+    needs: sonar
 
     steps:
     - name: Check out repository
