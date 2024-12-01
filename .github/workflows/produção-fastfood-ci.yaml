@@ -72,7 +72,7 @@ jobs:
         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
         -Dsonar.qualitygate.wait=true
-        -Dsonar.exclude=src/main/resources,src/main/java/com/challenge/order/status/fastfood/config/**,src/main/java/com/challenge/order/status/fastfood/mapstruct/**,src/main/java/com/challenge/order/status/fastfood/model/**,src/main/java/com/challenge/order/status/fastfood/repository/**,src/main/java/com/challenge/order/status/fastfood/controller/request/**
+        -Dsonar.exclusions=src/main/resources,src/main/java/com/challenge/order/status/fastfood/config/**,src/main/java/com/challenge/order/status/fastfood/mapstruct/**,src/main/java/com/challenge/order/status/fastfood/model/**,src/main/java/com/challenge/order/status/fastfood/repository/**,src/main/java/com/challenge/order/status/fastfood/controller/request/**
         
 
 
