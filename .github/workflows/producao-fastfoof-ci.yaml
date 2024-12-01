@@ -1,4 +1,3 @@
-
 name: CI
 
 on: [workflow_dispatch]
@@ -91,4 +90,5 @@ jobs:
 
     - name: Push Docker image with latest tag
       run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ vars.DOCKER_IMAGE_NAME }}:latest
+
 
