@@ -71,6 +71,6 @@ jobs:
         -Dsonar.host.url=${{ vars.SONAR_HOST_URL }} 
         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
-        -Dsonar.exclusions=src/main/resources,src/main/java/com/challenge/order/status/fastfood/config/**,src/main/java/com/challenge/order/status/fastfood/mapstruct/**,src/main/java/com/challenge/order/status/fastfood/model/**,src/main/java/com/challenge/order/status/fastfood/repository/**,src/main/java/com/challenge/order/status/fastfood/controller/request/**
+        
         
   
