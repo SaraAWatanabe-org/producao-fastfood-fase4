@@ -29,14 +29,6 @@
 	<properties>
 		<java.version>21</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
-		<sonar.coverage.exclusions>
-			src/main/resources,
-        	src/main/java/com/challenge/order/status/fastfood/config/**,
-        	src/main/java/com/challenge/order/status/fastfood/mapstruct/**,
-        	src/main/java/com/challenge/order/status/fastfood/model/**,
-        	src/main/java/com/challenge/order/status/fastfood/repository/**,
-        	src/main/java/com/challenge/order/status/fastfood/controller/request/**
-		</sonar.coverage.exclusions>
 	</properties>
 	
 	<dependencies>
