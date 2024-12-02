@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.challange.order.status</groupId>
 	<artifactId>order-status-fastfood</artifactId>
-	<version>0.0.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>order-status-fastfood</name>
 	<description>fastfood order status</description>
 	<url/>
